@@ -1,0 +1,9 @@
+<?php
+    require_once('./lib/header.php');
+?>
+<header>
+    <h1>coucou</h1>
+</header>
+<?php
+    require_once('./lib/footer.php');
+?>

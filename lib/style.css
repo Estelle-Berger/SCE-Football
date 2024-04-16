@@ -1,0 +1,30 @@
+*, body{
+    background-color: #fcf5f5;
+}
+.login{
+    border-color: black 2px solid;
+    border-radius: 5px;
+    color: black;
+    background-color: white;
+}
+.nav-link, .nav-link:hover{
+    color: black !important;
+    font-weight: normal;
+}
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+.lien{
+    color: black !important;
+}
+.modal-footer{
+    background-color: #ffebeb;
+}
+.box_select{
+    width: 160px;
+    height: 40px;
+    border: 2px solid #999;
+    font-size: 18px;
+    color: black;
+    border-radius: 5px;
+}
