@@ -1,13 +1,5 @@
 <?php
-    require_once('config.php');
-    $id_connect = $_SESSION['id'];
-    $requete = $bdd->prepare("SELECT profil_id FROM roles R INNER JOIN users U ON U.user_id = R.user_id WHERE U.user_id ='$id_connect'");
-    $requete->execute();
-    $idAll = $requete->fetchAll();
-    foreach($idAll as $id){
-        foreach($id as $key =>$value)
-        $id[$key] = secure($value);
-    }
+    require_once('config.php');   
 ?>
 
 <!DOCTYPE html>
@@ -33,41 +25,39 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="nav nav-underline me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Histoire</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./matches.php">Matchs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Match</a>
+                        <a class="nav-link" href="./admin_teams.php">Equipes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="./contact.php">Contact</a>
                     </li>
                 <li>
                 <?php 
                 
                 if(isset($_SESSION['isLogged']) AND $_SESSION['isLogged']==true){
-                    if(isset($id['profil_id']) AND $id['profil_id']== 1){?>
+                    if(isset($_SESSION['selected_profil']) AND $_SESSION['selected_profil']== 1){?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Administration</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="./admin_teams.php">Gestion des équipes</a></li>
                             <li><a class="dropdown-item" href="./admin_users.php">Gestion des utilisateurs</a></li>
-                            <li><a class="dropdown-item" href="/">Gestion des matches</a></li>
-                            <li><a class="dropdown-item" href="/">Gestion des actualités</a></li>
+                            <li><a class="dropdown-item" href="./admin_matches.php">Gestion des matches</a></li>
                         </ul>
                     </li>
                     <?php } 
-                    if(isset($id['profil_id']) AND $id['profil_id'] == 2){?>
+                    if(isset($_SESSION['selected_profil']) AND $_SESSION['selected_profil'] == 2){?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Entraîneur</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="./admin_player.php">Gestion des joueurs</a></li>
-                            <li><a class="dropdown-item" href="/">Création des matches</a></li>
-                            <li><a class="dropdown-item" href="/">Création des convocations </a></li>
+                            <li><a class="dropdown-item" href="./admin_matches.php">Gestion des matches</a></li>
                         </ul>
                     </li>
                     <?php }
-                    if(isset($id['profil_id']) AND $id['profil_id'] == 3){?>
+                    if(isset($_SESSION['selected_profil']) AND $_SESSION['selected_profil'] == 3){?>
                     <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Joueur</a>
                         <ul class="dropdown-menu">

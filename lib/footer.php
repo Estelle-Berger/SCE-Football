@@ -3,14 +3,19 @@
 ?>
 <div class="container-fluid">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <div class="col-md-4 d-flex align-items-center">
+        <div class="col-md-5 d-flex align-items-center">
             <a href="index.php" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
                 <img class="bi" src="assets/icon/test_logo_SCE.png" width="50" height="50"></img>
             </a>
             <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Company, Inc</span>
         </div>
-
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <div class="col-md-2">
+            <div>
+                <a href="./mentions-legales.php" class="lien">Mentions Légales</a><br>
+                <a href="./politique_de_confidentialite.php" class="lien">Politique de confidentialité</a>
+            </div>
+        </div>
+        <ul class="nav col-md-5 justify-content-end list-unstyled d-flex">
             <li class="ms-3"><a class="text-body-secondary" href="/"><img src="assets/icon/twitter.png" width="24" height="24"></img></a></li>
             <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/icon/facebook.png" width="24" height="24"></img></a></li>
             <li class="ms-3"><a class="text-body-secondary" href="#"><img src="assets/icon/instagram.png" width="24" height="24"></img></a></li>

@@ -4,7 +4,7 @@
 
 ?>
 <div class="p-2 d-flex justify-content-start">
-    <a href="./admin_user.php" class="btn btn-outline-secondary" type="submit">Création d'utilisateur</a>
+    <?php if ($_SESSION['selected_profil']!=3){?><a href="./admin_user.php" class="btn btn-outline-secondary" type="submit">Création d'utilisateur</a><?php }?>
 </div>
 <div>
     <h3 class="d-flex justify-content-center">Liste des utilisateurs</h3>

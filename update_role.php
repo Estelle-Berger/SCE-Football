@@ -26,36 +26,7 @@ $listeTeams = $requete_teams->fetchAll();
 
 ?>
 <section class="container">
-<?php if($role_id == 1){ ?>
-    <div class="m-5 border border-2 rounded-3">
-        <form method="post" action="">
-        <input type="hidden" name="old_profile" value="<?=$role_id;?>">
-        <input type="hidden" name="token" value="<?=htmlspecialchars($_SESSION['token']);?>">
-            <h1 class="p-2 text-center">Définir un rôle</h1>
-            <div class="p-3 d-flex justify-content-center gap-5">
-                <label class="p-2 border border-3 rounded-3"><?=$user['lastname'];?></label>
-                <label class="p-2 border border-3 rounded-3"><?=$user['firstname'];?></label>
-            </div>
-            <div class="p-2 d-flex justify-content-center">
-                <div>
-                    <select class="box_select" name="role" id="role">
-                        <?php foreach($listeProfils as $profil){
-                                foreach($profil as $key => $value)
-                                $profil[$key] = secure($value);?>
-                        <option value="<?=$profil['profil_id'];?>"<?php if($profil['profil_id']==$role_id){?> selected <?php } ?>><?=$profil['profil_name'];?></option>
-                    <?php }?>
-                    </select>
-                </div>
-            </div>
-            <div class="p-4 d-flex justify-content-center gap-5">
-                <a href="./admin_users.php" class="p-2 btn btn-danger" type="submit">Fermer</a>
-                <button type="submit" name="save_role" class="btn btn-secondary">Sauvegarde</button>
-            </div>
-        </form>
-    </div>
-    <?php }else{?>
-
-    <div class="m-5 border border-2 rounded-3">
+<div class="m-5 border border-2 rounded-3">
         <form method="post" action="">
         <input type="hidden" name="old_team" value="<?=$user['team_id'];?>">
         <input type="hidden" name="token" value="<?=htmlspecialchars($_SESSION['token']);?>">
@@ -76,10 +47,40 @@ $listeTeams = $requete_teams->fetchAll();
                 </div>
             </div>
             <div class="p-4 d-flex justify-content-center gap-5">
-                <a href="<?php if ($_SESSION['profils'] == 1){?>./admin_users.php<?php }else{?>./admin_player.php"<?php }?> class="p-2 btn btn-danger" type="submit">Fermer</a>
+                <a href="<?php if($_SESSION['selected_profil'] == 1){?>./admin_users.php<?php }else{?>./admin_player.php<?php }?>" class="btn btn-danger" type="submit">Fermer</a>
                 <button type="submit" name="save_team" class="btn btn-secondary">Sauvegarde</button>
             </div>
         </form>
     </div>
+
+<?php if(($_SESSION['selected_profil']) == 1){ ?>
+    <div class="m-5 border border-2 rounded-3">
+        <form method="post" action="">
+        <input type="hidden" name="old_profile" value="<?=$role_id;?>">
+        <input type="hidden" name="token" value="<?=htmlspecialchars($_SESSION['token']);?>">
+            <h1 class="p-2 text-center">Définir un rôle</h1>
+            <div class="p-3 d-flex justify-content-center gap-5">
+                <label class="p-2 border border-3 rounded-3"><?=$user['lastname'];?></label>
+                <label class="p-2 border border-3 rounded-3"><?=$user['firstname'];?></label>
+            </div>
+            <div class="p-2 d-flex justify-content-center">
+                <div>
+                    <select class="box_select" name="role" id="role">
+                        <?php foreach($listeProfils as $profil){
+                                foreach($profil as $key => $value)
+                                $profil[$key] = secure($value);?>
+                        <option value="<?=$profil['profil_id'];?>"<?php if($profil['profil_id']==$role_id){?> selected <?php }?>><?=$profil['profil_name'];?></option>
+                    <?php }?>
+                    </select>
+                </div>
+            </div>
+            <div class="p-4 d-flex justify-content-center gap-5">
+                <a href="./admin_users.php" class="btn btn-danger" type="submit">Fermer</a>
+                <button type="submit" name="save_role" class="btn btn-secondary">Sauvegarde</button>
+            </div>
+        </form>
+    </div>
+    <?php }else{?>
+
     <?php }?>
 </section>

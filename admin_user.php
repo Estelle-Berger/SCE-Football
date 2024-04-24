@@ -51,7 +51,7 @@
             <input class="btn btn-outline-secondary" type="submit" id="mybutton" name="save_user" value="Enregistrer">
         </div>
         <div class="p-2 d-flex justify-content-center">
-            <a href="<?php if ($_SESSION['profils'] == 1){?>./admin_users.php<?php }else{?>./admin_player.php"<?php }?> class="btn btn-outline-secondary" type="submit">Liste utilisateurs</a>
+            <a href="<?php if ($_SESSION['selected_profil'] == 1){?>./admin_users.php<?php }else{?>./admin_player.php<?php }?>" class="btn btn-outline-secondary" type="submit">Liste utilisateurs</a>
         </div>
     </form>
 </section>

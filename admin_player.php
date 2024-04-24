@@ -4,7 +4,7 @@
 
 ?>
 <div class="p-2 d-flex justify-content-start">
-    <a href="./admin_user.php" class="btn btn-outline-secondary" type="submit">Création d'un joueur</a>
+<?php if ($_SESSION['selected_profil']!==3){?><a href="./admin_user.php" class="btn btn-outline-secondary" type="submit">Création d'un joueur</a><?php }?>
 </div>
 <div>
     <h3 class="d-flex justify-content-center">Liste des Joueurs</h3>
@@ -39,7 +39,7 @@
             left join profils P on P.profil_id = R.profil_id 
             left join teams_users TU on TU.user_id = U.user_id
             left join teams T on T.team_id = TU.team_id
-            left join postes O on O.Poste_id = U.job WHERE P.profil_id = 3");
+            left join postes O on O.Poste_id = U.job WHERE P.profil_id = 3 and T.team_id = TU.team_id");
             $requete_users->execute();
             $listeUsers = $requete_users->fetchAll();
             foreach($listeUsers as $users){
